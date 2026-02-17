@@ -54,3 +54,11 @@ JOIN coffeerecipies AS c
 JOIN syrup AS s
     ON c.syrupid = s.syrupid
 ORDER BY o.ordertime;
+
+SELECT
+    c.coffeeType,
+    c.milkType,
+    s.syrupname
+FROM coffeerecipies AS c
+LEFT JOIN Syrup AS s
+    ON s.syrupid = c.syrupid;
