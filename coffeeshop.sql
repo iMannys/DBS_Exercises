@@ -62,3 +62,20 @@ SELECT
 FROM coffeerecipies AS c
 LEFT JOIN Syrup AS s
     ON s.syrupid = c.syrupid;
+
+SELECT coffeeType FROM coffeerecipies
+UNION ALL
+SELECT coffeeType FROM orders
+ORDER BY coffeeType;
+
+SELECT coffeeType FROM coffeerecipies
+UNION -- Distinct values
+SELECT coffeeType FROM orders
+ORDER BY coffeeType;
+
+(SELECT c.coffeeType,
+        c.milkType FROM coffeerecipies AS c)
+INTERSECT
+(SELECT o.coffeeType,
+        o.milkType
+ FROM Orders AS o);
