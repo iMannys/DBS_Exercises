@@ -41,3 +41,16 @@ WHERE coffeetype = 'latte' AND milktype = 'oat';
 
 SELECT c.coffeeType, s.syrupName
 FROM coffeerecipies c JOIN Syrup s ON s.syrupid = c.syrupid;
+
+SELECT
+    o.orderId,
+    o.customer,
+    o.coffeeType,
+    s.syrupName AS syrup
+FROM orders AS o
+JOIN coffeerecipies AS c
+    ON o.coffeetype = c.coffeetype
+    AND o.milktype = c.milktype
+JOIN syrup AS s
+    ON c.syrupid = s.syrupid
+ORDER BY o.ordertime;
